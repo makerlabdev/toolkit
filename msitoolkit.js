@@ -2,14 +2,20 @@
 // AUTHORS: JORI VAN KEULEN
 
 // Constructor
-function msi(id) {
-	return this;
-}
+(function(window){
+	function msiToolkit(){
+		var _msiToolkitObject = {};
 
-// Dot-operator methods
-msi.prototype = {
-	alleUTM: function() {
-		var data = window.location.search.slice(1);
-		return this;
+		// methods
+		_msiToolkitObject.alleUTMs = function() {
+			var data = window.location.search.slice(1);
+			return data;
+		}
+
+		return _msiToolkitObject;
 	}
-}
+
+	if (typeof(window.msi) === 'undefined'){
+		window.msi = msiToolkit();
+	}
+})(window);
