@@ -33,7 +33,7 @@
 		}
 
 		// Vind alle CTA's en plak UTM codes in de href
-		_msiToolkitObject.utmNaarCTA = function(cta = "btn-cta") {
+		_msiToolkitObject.utmNaarAlleCTA = function(cta = "btn-cta") {
 			var ctaBtnArray = $('*[id^="btn-cta"]'); 
 			ctaBtnArray.each(function() {
 			    var url = $(this).attr('href');
