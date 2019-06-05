@@ -8,7 +8,7 @@ Sneller experimenten opzetten met kant-en-klare scripts.
 Kopieer de volgende code in de `<head>` sectie van je Webflow project.
 
 ``` html
-<import type="text/javascript" src=""></script>
+<script type="text/javascript" src="https://makerlabdev.github.io/toolkit/msitoolkit.js"></script>
 ```
 
 # Functies
