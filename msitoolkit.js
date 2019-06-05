@@ -32,6 +32,15 @@
 
 		}
 
+		// Vind alle CTA's en plak UTM codes in de href
+		_msiToolkitObject.utmNaarCTA = function(cta = "btn-cta") {
+			var ctaBtnArray = $('*[id^="btn-cta"]'); 
+			ctaBtnArray.each(function() {
+			    var url = $(this).attr('href');
+			    $(this).attr('href', url + window.location.search.slice(1));
+			});
+		}
+
 		return _msiToolkitObject;
 	}
 
