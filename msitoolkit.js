@@ -48,7 +48,7 @@
 			var ctaBtnObj = $('*[id^="' + ctaID + '"]'); 
 			ctaBtnObj.each(function() {
 			    var url = $(this).attr('href');
-			    $(this).attr('href', url + window.location.search.slice(1));
+			    $(this).attr('href', url + "?" + window.location.search.slice(1));
 			});
 		}
 
