@@ -52,6 +52,15 @@
 			});
 		}
 
+		// Lees het formulier, serialize de data en plak dit onder de submit button (brutefore submit method=GET)
+		_msiToolkitObject.formDataNaarVolgendePagina = function(form = "form") {
+			$("#"+form).find('input[type=submit]').click(function(e) {
+			  event.preventDefault();
+			  var url = $("#"+form).attr("action");
+				window.location.replace(url + "?" + $("#"+form).serialize());
+			});
+		}
+
 		return _msiToolkitObject;
 	}
 
