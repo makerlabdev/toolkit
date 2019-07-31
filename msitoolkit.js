@@ -57,7 +57,7 @@
 			$("#"+form).find('input[type=submit]').click(function(e) {
 				event.preventDefault();
 				var url = $("#"+form).attr("action");
-				if (url === "") { url = $("#"+form).attr("redirect"); }
+				if (!url) { url = $("#"+form).attr("redirect"); }
 				window.location.replace(url + "?" + $("#"+form).serialize());
 			});
 		}
