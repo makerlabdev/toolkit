@@ -55,8 +55,9 @@
 		// Lees het formulier, serialize de data en plak dit onder de submit button (brutefore submit method=GET)
 		_msiToolkitObject.formDataNaarVolgendePagina = function(form = "form") {
 			$("#"+form).find('input[type=submit]').click(function(e) {
-			  event.preventDefault();
-			  var url = $("#"+form).attr("action");
+				event.preventDefault();
+				var url = $("#"+form).attr("action");
+				if (url === "") { url = $("#"+form).attr("redirect"); }
 				window.location.replace(url + "?" + $("#"+form).serialize());
 			});
 		}
