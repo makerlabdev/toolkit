@@ -26,13 +26,24 @@ Je kan ook zelf een begin term voor de `id` instellen in de parameter
 msi.utmNaarAlleCTA("customID");
 ````
 
-## Hidden fields automatisch aanmaken voor alle UTM codes
+## Hidden fields automatisch aanmaken voor alle UTM codes 
 
 Deze functie leest de UTM codes uit en maakt automatisch een hidden field aan per UTM, deze worden daarna ook gevuld met de juiste data.
 Je moet de exacte form `id` opgeven in de paramter van de functie.
 ```javascript
 msi.maakHiddenFields("formID");
 ```
+
+## Formulier automatisch vullen met data uit de URL (geen UTM codes!)
+Deze functie leest de non-UTM parameters in de URL uit en zoekt per parameter een `<input>` veld met `name=parameter`, deze worden daarna ook gevuld met de juiste data.
+```javascript
+msi.vulFormMetUrlParams("formID");
+```
+
+### Use case
+Als de url is: `www.site.nl?naam=roderick`
+En je hebt een: `<input type="text" name="naam" />`
+Dan wordt "roderick" vanzelf in het formulier gezet, zodat de gebruiker het niet dubbel hoeft in te vullen.
 
 # Losse functies
 
