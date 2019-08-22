@@ -34,6 +34,7 @@
 			var utmObj = JSON.parse('{"' + utmRaw.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
 
 			$.each(utmObj, function(key, value) {
+				if (!key.includes('utm')) { return; }
 				$('<input>').attr({
 						type: 'hidden',
 						id: key,
@@ -63,6 +64,18 @@
 			});
 		}
 
+		// Haal alle non-utm params uit de url en populate een form
+		_msiToolkitObject.vulFormMetUrlParams = function(formID = "form") {
+            var formObj = $("#"+formID);
+            var paramsRaw = location.search.substring(1);
+            var paramsObj = JSON.parse('{"' + paramsRaw.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
+
+            $.each(paramsObj, function(key, value) {
+                if (key.includes('utm')) { return; }
+                $("input[name='"+key+"']").val(value);
+            });
+        }
+        
 		return _msiToolkitObject;
 	}
 
