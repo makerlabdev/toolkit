@@ -65,13 +65,13 @@
 		}
 
 		// Haal alle non-utm params uit de url en populate een form
-		_msiToolkitObject.vulFormMetUrlParams = function(formID = "form") {
+		_msiToolkitObject.vulFormMetUrlParams = function(formID = "form", utm = false) {
             var formObj = $("#"+formID);
             var paramsRaw = location.search.substring(1);
             var paramsObj = JSON.parse('{"' + paramsRaw.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
 
             $.each(paramsObj, function(key, value) {
-                if (key.includes('utm')) { return; }
+                if (key.includes('utm') && utm === false) { return; }
                 $("input[name='"+key+"']").val(value);
             });
         }
