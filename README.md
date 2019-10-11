@@ -34,10 +34,18 @@ Je moet de exacte form `id` opgeven in de paramter van de functie.
 msi.maakHiddenFields("formID");
 ```
 
-## Formulier automatisch vullen met data uit de URL (geen UTM codes!)
-Deze functie leest de non-UTM parameters in de URL uit en zoekt per parameter een `<input>` veld met `name=parameter`, deze worden daarna ook gevuld met de juiste data.
+## Formulier automatisch vullen met data uit de URL (met of zonder UTM codes!)
+Deze functie leest de parameters in de URL uit en zoekt per parameter een `<input>` veld met `name=parameter`, deze worden daarna ook gevuld met de juiste data.
+
+Default staan de UTM codes uit, deze kan je aanzetten met de 2e optionele parameter in de functie.
+
+Zonder UTM codes:
 ```javascript
 msi.vulFormMetUrlParams("formID");
+```
+
+```javascript
+msi.vulFormMetUrlParams("formID", true);
 ```
 
 ### Use case
