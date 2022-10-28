@@ -31,6 +31,7 @@
 		_msiToolkitObject.maakHiddenFields = function(formID = "form") {
 			var formObj = $("#"+formID);
 			var utmRaw = location.search.substring(1);
+			if (!location.search.substring(1)) return;
 			var utmObj = JSON.parse('{"' + utmRaw.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
 
 			$.each(utmObj, function(key, value) {
